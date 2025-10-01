@@ -1,0 +1,117 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Atención Integral</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Barra de navegación superior -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="nav-container">
+            <h1 class="nav-title">Sistema de Atención</h1>
+            <ul class="nav-menu">
+                <li><button class="nav-item" data-view="view-inicio" aria-label="Ir a Inicio">Inicio</button></li>
+                <li><button class="nav-item" data-view="view-formulario" aria-label="Ir a Formulario">Formulario</button></li>
+                <li><button class="nav-item" data-view="view-entrevista" aria-label="Ir a Entrevista">Entrevista</button></li>
+                <li><button class="nav-item" data-view="view-perfil" aria-label="Ir a Perfil">Perfil</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <main class="main-container">
+        <!-- Vista Inicio -->
+        <section id="view-inicio" class="view active" aria-label="Selección de tipo de atención">
+            <h2>Seleccione el tipo de atención</h2>
+            <div class="cards-container">
+                <button class="card-tipo" data-tipo="Emprendimiento" aria-label="Seleccionar atención de Emprendimiento">
+                    <div class="card-icon">🚀</div>
+                    <h3>Emprendimiento</h3>
+                    <p>Apoyo para emprendedores y negocios</p>
+                </button>
+                <button class="card-tipo" data-tipo="OMIL" aria-label="Seleccionar atención OMIL">
+                    <div class="card-icon">💼</div>
+                    <h3>O.M.I.L.</h3>
+                    <p>Intermediación laboral</p>
+                </button>
+                <button class="card-tipo" data-tipo="Capacitación" aria-label="Seleccionar atención de Capacitación">
+                    <div class="card-icon">📚</div>
+                    <h3>Capacitación</h3>
+                    <p>Formación y desarrollo de competencias</p>
+                </button>
+                <button class="card-tipo" data-tipo="Conecta" aria-label="Seleccionar atención Conecta">
+                    <div class="card-icon">🤝</div>
+                    <h3>Conecta</h3>
+                    <p>Apoyo integral y derivaciones</p>
+                </button>
+            </div>
+        </section>
+
+        <!-- Vista Formulario -->
+        <section id="view-formulario" class="view" aria-label="Formulario de registro">
+            <div class="form-header">
+                <h2>Formulario de Registro</h2>
+                <div class="tipo-badge" id="tipo-actual"></div>
+            </div>
+            <div class="form-container">
+                <form id="formulario-principal" novalidate>
+                    <div id="campos-dinamicos"></div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="btn-volver">Volver</button>
+                        <button type="button" class="btn btn-outline" id="btn-guardar">Guardar borrador</button>
+                        <button type="button" class="btn btn-primary" id="btn-continuar" disabled>Continuar</button>
+                    </div>
+                </form>
+                <div id="error-messages" role="alert" aria-live="assertive" class="error-container"></div>
+            </div>
+        </section>
+
+        <!-- Vista Entrevista -->
+        <section id="view-entrevista" class="view" aria-label="Entrevista">
+            <h2>Entrevista Guiada</h2>
+            <div class="entrevista-container">
+                <div class="chat-panel">
+                    <h3>Conversación</h3>
+                    <div id="chat-messages" class="chat-messages" role="log" aria-label="Mensajes de la entrevista">
+                        <div class="message agent">Bienvenido a la entrevista. Vamos a profundizar en su situación.</div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Escriba su respuesta..." aria-label="Campo de respuesta">
+                        <button id="btn-enviar-chat" aria-label="Enviar mensaje">Enviar</button>
+                    </div>
+                </div>
+                <div class="criterios-panel">
+                    <h3>Criterios de Evaluación</h3>
+                    <div class="tabs">
+                        <button class="tab active" data-tab="comun">Común</button>
+                        <button class="tab" data-tab="especifico">Específico</button>
+                    </div>
+                    <div id="criterios-list" class="criterios-list">
+                        <!-- Se llenarán dinámicamente -->
+                    </div>
+                    <button id="btn-finalizar-entrevista" class="btn btn-primary">Finalizar entrevista</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vista Perfil -->
+        <section id="view-perfil" class="view" aria-label="Perfil laboral">
+            <div class="perfil-header">
+                <h2>Ficha Laboral</h2>
+                <div class="perfil-actions">
+                    <button class="btn btn-outline" disabled title="Funcionalidad demo">Exportar PDF</button>
+                    <button class="btn btn-outline" disabled title="Funcionalidad demo">Exportar JSON</button>
+                </div>
+            </div>
+            <div id="perfil-content" class="perfil-content">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>
